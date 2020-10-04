@@ -16,9 +16,20 @@ class ImagesController < ApplicationController
     if params[:image].present?
       image.image.attach(params[:image])
       image.save
-      render json: {url: url_for(image.image), created_at: image.created_at}
+      render json: { url: url_for(image.image), created_at: image.created_at }, status: :ok
     else
       render json: { error: 'Bad Request' }, status: 400
     end
+  end
+
+  def index
+    images = Image.all
+    payload = images.map do |img|
+      { url: url_for(img.image), created_at: img.created_at }
+    rescue StandardError
+      { url: '', created_at: img.created_at }
+    end
+
+    render json: payload, status: :ok
   end
 end
