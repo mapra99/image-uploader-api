@@ -3,7 +3,7 @@
 module CORSPolicy
   ALLOWED_DOMAIN = ''
 
-  def allow_origins everything: false, local_port: nil
+  def allow_cross_origins(everything: false, local_port: nil)
     if everything
       response.headers['Access-Control-Allow-Origin'] = '*'
     elsif local_port.present?

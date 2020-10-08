@@ -14,12 +14,12 @@ RSpec.describe 'Health endpoint', type: :request do
       expect(response).to have_http_status(200)
     end
 
-    it 'should allow cors access for localhost' do
+    it 'should allow completely cors access' do
       headers = response.headers
       allow_origin = headers['Access-Control-Allow-Origin']
 
       expect(allow_origin).not_to be_empty
-      expect(allow_origin).to eq('localhost')
+      expect(allow_origin).to eq('*')
     end
   end
 end
