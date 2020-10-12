@@ -1,10 +1,4 @@
 class ImagesController < ApplicationController
-  include CORSPolicy
-
-  before_action do
-    allow_cross_origins local_port: 3000
-  end
-
   rescue_from Exception do |e|
     render json: { error: e.message }, status: :internal_error
   end
