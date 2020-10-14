@@ -54,7 +54,7 @@ rails server
 
 #### Cloudinary
 
-On production this project uses cloudinary for files storage, but in development environment by default it stores the files locally. However, you may want to use cloudinary in your development environment, so you can go to [](https://cloudinary.com/), set up and account and get your own credentials. Then, do the following:
+On production this project uses cloudinary for files storage, but in development environment by default it stores the files locally. However, you may want to use cloudinary in your development environment, so you can go to [Cloudinary](https://cloudinary.com/), set up and account and get your own credentials. Then, do the following:
 
 1. Create a `.env` file with the following content:
 ```

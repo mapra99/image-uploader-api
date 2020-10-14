@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:3000', '127.0.0.1:3000', ENV["PRODUCTION_FRONTEND_URL"]
+    origins 'http://localhost:3000', '127.0.0.1:3000', (ENV["PRODUCTION_FRONTEND_URL"] || "") 
     resource '/health', methods: [:get]
     resource '/images', methods: [:get, :post]
   end
